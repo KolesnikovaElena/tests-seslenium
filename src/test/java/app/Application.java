@@ -37,6 +37,19 @@ public class Application {
 	public void quit() {
 		driver.quit();
 	}
+	
+	protected boolean isElementPresent(WebDriver driver, By locator) {
+		try {
+			driver.findElement(locator);
+			return true;
+		} catch (NoSuchElementException ex) {
+			return false;
+		}
+	}
+	
+	public  boolean areElementsPresent(WebDriver driver, By locator) {
+		return driver.findElements(locator).size() > 0;
+	}
 
 	public void clickSliderBtn() {
 		System.out.println("Test clickSliderBtn start");
@@ -131,13 +144,51 @@ public class Application {
 		System.out.println("Test checkSignIn finish");
 	}
 
-	protected boolean isElementPresent(WebDriver driver, By locator) {
-		try {
-			driver.findElement(locator);
-			return true;
-		} catch (NoSuchElementException ex) {
-			return false;
+	
+
+	public void checkPrice() {
+		System.out.println("Test checkPrice start");
+		homePage.open();
+		if (areElementsPresent(driver, By.className("multi-currency-price__price"))) {
+			System.out.println("check price - passed"); 
 		}
+		System.out.println("Test checkPrice finish");
+		
 	}
 
+	public void checkCurrency() {
+		System.out.println("Test checkCurrency start");
+		homePage.open();
+		if (areElementsPresent(driver, By.className("multi-currency-price__currency"))) {
+			System.out.println("check currency - passed"); 
+		}
+		System.out.println("Test checkCurrency finish");
+		
+	}
+
+	public void checkDuration() {
+		System.out.println("Test checkDuration start");
+		homePage.open();
+		if (areElementsPresent(driver, By.className("brick-tour__duration"))) {
+			System.out.println("check duration - passed"); 
+		}
+		System.out.println("Test checkDuration finish");
+				
+	}
+
+	public void openTourFromPreview() {
+		System.out.println("Test openTourFromPreview start");
+		homePage.open();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-tour__title")));
+		String titleTourP = homePage.tourPreview.getAttribute("textContent");
+		homePage.tourPreview.click();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("page-tour-content__tour-title")));
+		WebElement titleTour = driver.findElement(By.className("page-tour-content__tour-title"));
+		assertEquals(titleTour.getAttribute("textContent"),titleTourP);
+		System.out.println("Test openTourFromPreview finish");
+		
+	}
+	
+	
+	
 }

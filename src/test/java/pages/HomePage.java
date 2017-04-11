@@ -22,7 +22,7 @@ public class HomePage extends Page{
 
 	public void open() {
 		driver.get("https://netuleny.com");
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("banner-tour__location-item")));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-tour__block-link")));
 		}
 	
 	
@@ -43,6 +43,9 @@ public class HomePage extends Page{
 	
 	@FindBy(css="[aria-label=previous]")
     public WebElement previousBtn;
+	
+	@FindBy(className="brick-tour__title")
+	public WebElement tourPreview;
 	
 	@FindBy(name="subscribeForm__email")
     public WebElement subscribeInput;
