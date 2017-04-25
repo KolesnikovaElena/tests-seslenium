@@ -4,6 +4,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -188,7 +189,102 @@ public class Application {
 		System.out.println("Test openTourFromPreview finish");
 		
 	}
+
+	public void addBookmark() {
+		System.out.println("Test openTourFromPreview start");
+		homePage.open();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-tour__title")));
+		homePage.allToursByActivity.click();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-tours-collection__image")));
+		//WebElement links = (WebElement) ((JavascriptExecutor) driver)
+		//		  .executeScript("return $$('a:contains((WebDriver)')");
+	/*	homePage.starTour.click();
+		Thread.sleep(3000);
+		driver.findElement(By.linkText("продолжить инкогнито")).click();
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("count")));
+		String count = homePage.countBookmark.getAttribute("textContent");
+		System.out.println(count);*/
+	//	System.out.println(strto);
+	}
+
+	public void openAllToursByActivity() {
+		System.out.println("Test openAllToursByActivity start");
+		homePage.open();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-tour__title")));
+		homePage.allToursByActivity.click();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-tours-collection__image")));
+		System.out.println("Test openAllToursByActivity finish");
+	}
+
+	public void openAllToursByLocation() {
+		System.out.println("Test openAllToursByLocation start");
+		homePage.open();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-tour__title")));
+		homePage.allToursByLocation.click();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-tours-collection__image")));
+		System.out.println("Test openAllToursByLocation finish");
+	}
+
+	public void openAllToursByMonth() {
+		System.out.println("Test openAllToursByMonth start");
+		homePage.open();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-tour__title")));
+		homePage.allToursByMonth.click();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-tours-collection__image")));
+		System.out.println("Test openAllToursByMonth finish");	
+	}
+
+	public void openAllToursByStyle() {
+		System.out.println("Test openAllToursByStyle start");
+		homePage.open();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-tour__title")));
+		homePage.allToursByStyle.click();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-tours-collection__image")));
+		System.out.println("Test openAllToursByStyle finish");	
+	}
+
+	public void openBlog() {
+		System.out.println("Test openBlog start");
+		homePage.open();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-post__block-link")));
+		homePage.blog.click();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-post__block-link")));
+		System.out.println("Test openBlog finish");	
+	}
 	
+	public void openPost() {
+		System.out.println("Test openPost start");
+		homePage.open();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-post__block-link")));
+		homePage.post.click();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("page-post-content__post-image")));
+		System.out.println("Test openPost finish");	
+	}
 	
+	public void openContacts() {
+		System.out.println("Test openContacts start");
+		homePage.open();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-tour__title")));
+		homePage.contacts.click();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("contacts")));
+		System.out.println("Test openContacts finish");	
+	}
 	
+	public void openMoney() {
+		System.out.println("Test openMoney start");
+		homePage.open();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-tour__title")));
+		homePage.money.click();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("page-common__article")));
+		System.out.println("Test openMoney finish");	
+	}
+	
+	public void openPolicy() {
+		System.out.println("Test openPolicy start");
+		homePage.open();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("brick-tour__title")));
+		homePage.policy.click();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("page-common__article")));
+		System.out.println("Test openPolicy finish");	
+	}
 }

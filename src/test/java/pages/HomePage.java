@@ -47,17 +47,50 @@ public class HomePage extends Page{
 	@FindBy(className="brick-tour__title")
 	public WebElement tourPreview;
 	
-	@FindBy(name="subscribeForm__email")
+	@FindBy(className = "brick-tour__toggle-bookmark")
+	public WebElement starTour;
+	
+	@FindBy(className = "count")
+	public WebElement countBookmark;
+	
+	@FindBy(css="[data-autotest-id=more-recommend-tours-desktop-link]")
+    public WebElement allRecommendTousr;
+		
+	@FindBy(css="[data-autotest-id=all-tours-by-activities-desktop-link]")
+    public WebElement allToursByActivity;
+	
+	@FindBy(css="[data-autotest-id=all-tours-by-locations-desktop-link]")
+    public WebElement allToursByLocation;
+	
+	@FindBy(css="[data-autotest-id=all-tours-by-months-desktop-link]")
+    public WebElement allToursByMonth;
+	
+	@FindBy(css="[data-autotest-id=all-tours-by-styles-desktop-link]")
+    public WebElement allToursByStyle;
+	
+	@FindBy(css="[data-autotest-id=all-posts-desktop-link]")
+    public WebElement blog;
+	
+	@FindBy(className="brick-post__block-link")
+    public WebElement post;	
+	
+	@FindBy(css="[data-autotest-id=subsribe-to-news-big-input]")
     public WebElement subscribeInput;
 	
-	@FindBy(css="body > site-content > ui-view > subscribe-to-news > div > form > div:nth-child(2) > div > div.input-group.input-group-lg > span > button")
+	@FindBy(css="[data-autotest-id=subsribe-to-news-big-submit-button]")
     public WebElement subscribeBtn;
 	
-	@FindBy(css="href^=/contacts")
-    public WebElement contacts;
-	
-	@FindBy(css="href^=/money")
+	@FindBy(css="[data-autotest-id=site-footer-contacts-link]")
+	public WebElement contacts;
+		
+	@FindBy(css="[data-autotest-id=site-footer-money-link]")
     public WebElement money;
+	
+	@FindBy(css="[data-autotest-id=site-footer-policy-link]")
+    public WebElement policy;
+	
+	
+	
 	
 	 public boolean isOnThisPage() {
 		return driver.findElements(By.className("banner-tour__slide is-selected")).size() > 0;
